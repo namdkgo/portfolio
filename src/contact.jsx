@@ -28,7 +28,7 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="w-full flex items-center justify-center snap-start bg-white"
+      className="w-full flex items-center justify-center snap-start"
       style={{
         minHeight: '94vh',
         height: '94vh',

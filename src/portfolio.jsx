@@ -49,7 +49,7 @@ function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="w-full flex items-center justify-center snap-start bg-white"
+      className="w-full flex items-center justify-center snap-start"
       style={{
         minHeight: '94vh',
         height: '94vh',
@@ -57,7 +57,7 @@ function Portfolio() {
         marginTop: '6vh',
       }}
     >
-      <div className="border p-6 rounded-lg bg-white shadow w-full h-full flex flex-col justify-center">
+      <div className="border p-6 rounded-lg shadow w-full h-full flex flex-col justify-center">
         <div className="flex flex-col md:flex-row gap-8 h-full">
           {/* 왼쪽: 프로젝트 정보 */}
           <div className="flex flex-col gap-4 md:w-1/3">

@@ -12,12 +12,18 @@ body,
   scroll-behavior: smooth;
 }
 
+header {
+  background-color: #184B85;
+}
+
 body {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100vh;
+  background-color: #F5F5F5;
 }
 
 section {
   scroll-snap-align: start;
+  background-color: #F5F5F5;
 }

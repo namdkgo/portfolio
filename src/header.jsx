@@ -40,17 +40,17 @@ function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <header className="fixed top-0 left-0 w-full shadow z-50">
       <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4 h-[6vh]">
-        <div className="text-xl font-bold text-gray-800 select-none">남동관 포트폴리오</div>
+        <div className="text-xl font-bold text-white select-none">남동관 포트폴리오</div>
         <nav className="space-x-6 flex">
           {MENU.map(menu => (
             <button
               key={menu.id}
               className={`font-medium transition-colors border-b-2 ${
                 active === menu.id
-                  ? 'text-blue-600 border-blue-600'
-                  : 'text-gray-700 border-transparent hover:text-blue-600'
+                  ? 'text-[#FFFFFF] border-[#FFFFFF]'
+                  : 'text-white border-transparent hover:text-[#FFFFFF] hover:border-[#FFFFFF] '
               }`}
               onClick={() => handleScrollTo(menu.id)}
             >
