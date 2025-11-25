@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import photo from './assets/photo.jpg';
 
 function Contact() {
   const [form, setForm] = useState({
-    email: '',
-    phone: '',
     name: '',
     title: '',
     message: '',
@@ -15,64 +14,50 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('메시지가 전송되었습니다.');
-    setForm({
-      email: '',
-      phone: '',
-      name: '',
-      title: '',
-      message: '',
-    });
+
+    // Build a mailto link so the message is sent to namdkgo@gmail.com
+    const subject = `${form.title} (from ${form.name})`;
+    const body = `Name: ${form.name}\n\n${form.message}`;
+    const mailtoLink = `mailto:namdkgo@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    // Open the user's mail client with prefilled recipient and content.
+    window.location.href = mailtoLink;
+
+    setForm({ name: '', title: '', message: '' });
   };
 
   return (
     <section
       id="contact"
-      className="w-full flex items-center justify-center snap-start"
+      className="w-full md:w-[60%] mx-auto flex justify-center snap-start items-stretch"
       style={{
-        minHeight: '94vh',
-        height: '94vh',
+        minHeight: '88vh',
+        height: '88vh',
         scrollSnapAlign: 'start',
-        marginTop: '6vh',
       }}
     >
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col md:flex-row gap-8 items-start w-full h-full"
-      >
-        {/* 왼쪽: 이메일, 전화 */}
-        <div className="flex flex-col gap-6 w-full md:w-1/3">
-          <label className="flex flex-col gap-2">
-            <span className="mb-1">E-mail :</span>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              className="border rounded px-3 py-2"
-              required
-            />
-          </label>
-          <label className="flex flex-col gap-2">
-            <span className="mb-1">Phone :</span>
-            <input
-              type="tel"
-              name="phone"
-              value={form.phone}
-              onChange={handleChange}
-              className="border rounded px-3 py-2"
-            />
-          </label>
+      <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-8 items-stretch w-full h-full px-6">
+        {/* 왼쪽: title, 설명, 이미지 */}
+        <div className="w-full md:w-1/2 flex flex-col items-center justify-center gap-6 h-full">
+          <div className="bg-white shadow-md p-8 w-[460px] flex flex-col justify-center">
+            <h2 className="text-2xl font-semibold text-center tracking-wide">CONTACT</h2>
+            <p className="mt-4 text-center text-sm text-gray-600">남겨주신 메시지는 확인 후 빠르게 연락드리겠습니다.</p>
+            <div className="mt-6 flex justify-center">
+              <img src={photo} alt="thanks" className="w-64 h-auto object-cover" />
+            </div>
+          </div>
         </div>
         {/* 오른쪽: 이름, 제목, 메시지, 전송 */}
-        <div className="flex flex-col gap-4 w-full md:w-2/3">
+        <div className="flex flex-col gap-4 w-full md:w-1/2 items-center justify-center py-6">
           <input
             type="text"
             name="name"
             placeholder="Name"
             value={form.name}
             onChange={handleChange}
-            className="border rounded px-3 py-2"
+            className="border border-gray-300 px-3 w-full md:w-[460px] h-10 placeholder-gray-400"
             required
           />
           <input
@@ -81,7 +66,7 @@ function Contact() {
             placeholder="Title"
             value={form.title}
             onChange={handleChange}
-            className="border rounded px-3 py-2"
+            className="border border-gray-300 px-3 mt-1 w-full md:w-[460px] h-10 placeholder-gray-400"
             required
           />
           <textarea
@@ -89,15 +74,15 @@ function Contact() {
             placeholder="Message"
             value={form.message}
             onChange={handleChange}
-            className="border rounded px-3 py-2 h-40 resize-none"
+            className="border border-gray-300 px-3 mt-1 resize-none w-full md:w-[460px] h-48 placeholder-gray-400"
             required
           />
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-1">
             <button
               type="submit"
-              className="border rounded px-8 py-2 hover:bg-gray-100 transition"
+              className="uppercase text-white font-medium transition w-full md:w-[460px] h-10 bg-[#425165] hover:bg-[#39424c]"
             >
-              Send
+              SEND
             </button>
           </div>
         </div>

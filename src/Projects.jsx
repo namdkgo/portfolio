@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const projects = [
+const projectList = [
   {
     name: '프로젝트 명',
     year: '2024',
@@ -17,15 +17,15 @@ const projects = [
   // 필요시 프로젝트 추가
 ];
 
-function Portfolio() {
+function Projects() {
   const [selected, setSelected] = useState(0);
   const [showDetail, setShowDetail] = useState(false);
   const modalRef = useRef(null);
 
-  const prevProject = () => setSelected((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
-  const nextProject = () => setSelected((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+  const prevProject = () => setSelected((prev) => (prev === 0 ? projectList.length - 1 : prev - 1));
+  const nextProject = () => setSelected((prev) => (prev === projectList.length - 1 ? 0 : prev + 1));
 
-  const project = projects[selected];
+  const project = projectList[selected];
 
   // 모달 바깥 클릭 시 닫기
   const handleBackdropClick = (e) => {
@@ -54,10 +54,9 @@ function Portfolio() {
         minHeight: '94vh',
         height: '94vh',
         scrollSnapAlign: 'start',
-        marginTop: '6vh',
       }}
     >
-      <div className="border p-6 rounded-lg shadow w-full h-full flex flex-col justify-center">
+      <div className="border p-6 w-full h-full flex flex-col justify-center">
         <div className="flex flex-col md:flex-row gap-8 h-full">
           {/* 왼쪽: 프로젝트 정보 */}
           <div className="flex flex-col gap-4 md:w-1/3">
@@ -128,4 +127,4 @@ function Portfolio() {
   );
 }
 
-export default Portfolio;
+export default Projects;

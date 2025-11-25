@@ -8,12 +8,13 @@ function About() {
       className="w-full flex items-start justify-center snap-start"
       style={{
         minHeight: '94vh',
+        height: '94vh',
         scrollSnapAlign: 'start',
-        paddingTop: '6vh', // margin 대신 패딩으로 내부 여유 확보
+        marginTop: '6vh', // margin 대신 패딩으로 내부 여유 확보
       }}
     >
       {/* 최상위 컨테이너: 세로 중앙 정렬 제거 */}
-      <div className="border p-6 rounded-lg shadow w-full flex flex-col">
+      <div className="p-6 w-full flex flex-col">
         <div className="flex flex-col md:flex-row gap-8 h-full">
           {/* 왼쪽: 사진 + 기본 정보 */}
           <div className="flex flex-col items-center md:w-[22%] gap-8 bg-[#184B85] text-white rounded-lg p-6">
@@ -65,8 +66,8 @@ function About() {
           {/* 오른쪽: 기술 스택 + 자기소개 */}
           <div className="flex flex-col gap-8 flex-1">
             {/* 자기소개 */}
-            <div className="border rounded bg-white p-6 text-lg min-h-[120px]">
-              <div className="space-y-4 text-left">
+            <div className="border rounded bg-white p-6 text-lg min-h-[120px] h-[88vh]">
+              <div className="space-y-4 text-left p-8">
                 <p>
                   <strong>초등학교 3학년, 우연히 게임 소스 파일을 얻게 되었습니다.</strong><br />
                   프로그래밍 언어도 IDE도 모르던 어린 시절, 단지 ‘내가 게임을 바꿔보고 싶다’는 호기심 하나로 메모장을 열고 코드를 하나씩 바꿔보며 시행착오를 반복했습니다. 컴파일러 없이 실행 화면 하나로만 결과를 확인할 수 있었기 때문에, 코드에 오류가 생기거나 실행이 되지 않으면 모든 파일을 삭제하고 다시 압축을 푼 뒤, 기억만으로 기존의 수정 내용을 재현해야 했습니다. 지금처럼 AI는 물론, 구글 검색조차 활성화되지 않았던 시절이기에 무언가 하나를 바꾸는 데에도 여러 겹의 장벽을 마주해야 했고, 포기하고 싶을 때도 많았습니다. 하지만 제가 만든 게임을 즐겨주는 사람들이 있었기에 끝까지 책임감을 가지고 완성할 수 있었습니다. 이 과정은 제가 처음으로 개발의 즐거움을 느꼈던 소중한 경험이었고, 개발자가 되겠다는 꿈을 단 한 번도 흔들리지 않게 해주었습니다.
