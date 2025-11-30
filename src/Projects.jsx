@@ -1,40 +1,36 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import projectImage1 from './assets/project1-7.png';
 
 const projectList = [
   {
-    name: '프로젝트 명',
-    year: '2024',
-    period: '3개월',
-    role: '100%',
-    summary: '프로젝트 설명',
-    overview: '프로젝트 개요',
-    environment: '개발 환경',
-    details: '개발 내용',
-    features: '주요 기능 설명',
-    featureImage: '주요 기능 사진',
-    image: '프로젝트 사진',
-  },
-  // 필요시 프로젝트 추가
+    id: 1,
+    name: '지피티쳐(GPT + Teacher)',
+    period: '2025.03 - 2025.06',
+    role: 'Back-End & AI Prompt Developer',
+    description: 'AI 기반 모의시험 생성 및 학습 분석 플랫폼',
+    details: [
+      'Spring Boot 기반 백엔드 시스템 설계 및 개발',
+      '테이블 모델링 및 RESTful API 구현',
+      'AI 파이프라인 구축',
+      '텍스트 추출, 청킹, 임베딩, AI 언어 모델 호출 및 GPT API 연동'
+    ],
+    techStack: ['React', 'TailwindCSS', 'Chart.js', 'Spring Boot', 'MariaDB', 'FastAPI', 'LangChain', 'ChromaDB', 'OpenAI API'],
+    image: projectImage1,
+  }
 ];
 
 function Projects() {
-  const [selected, setSelected] = useState(0);
+  const navigate = useNavigate();
   const [showDetail, setShowDetail] = useState(false);
   const modalRef = useRef(null);
 
-  const prevProject = () => setSelected((prev) => (prev === 0 ? projectList.length - 1 : prev - 1));
-  const nextProject = () => setSelected((prev) => (prev === projectList.length - 1 ? 0 : prev + 1));
-
-  const project = projectList[selected];
-
-  // 모달 바깥 클릭 시 닫기
   const handleBackdropClick = (e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
       setShowDetail(false);
     }
   };
 
-  // 모달이 열릴 때 스크롤 방지
   useEffect(() => {
     if (showDetail) {
       document.body.style.overflow = 'hidden';
@@ -46,83 +42,82 @@ function Projects() {
     };
   }, [showDetail]);
 
+  const handleMoreDetail = (project) => {
+    navigate(`/project/${project.id}`);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <section
-      id="portfolio"
+      id="projects"
       className="w-full flex items-center justify-center snap-start"
       style={{
-        minHeight: '94vh',
-        height: '94vh',
+        minHeight: '88vh',
+        height: '88vh',
         scrollSnapAlign: 'start',
       }}
     >
-      <div className="border p-6 w-full h-full flex flex-col justify-center">
-        <div className="flex flex-col md:flex-row gap-8 h-full">
-          {/* 왼쪽: 프로젝트 정보 */}
-          <div className="flex flex-col gap-4 md:w-1/3">
-            <div className="border rounded p-2 text-center font-semibold">{project.name}</div>
-            <div className="border rounded p-2 text-center">{project.summary}</div>
-            <button
-              className="border rounded p-2 mt-2 hover:bg-gray-100 transition"
-              onClick={() => setShowDetail(true)}
-            >
-              자세히 보기
-            </button>
-          </div>
-          {/* 오른쪽: 프로젝트 사진 및 슬라이드 */}
-          <div className="flex-1 flex items-center justify-center relative">
-            <button
-              className="absolute left-0 top-1/2 -translate-y-1/2 px-2 text-2xl text-gray-400 hover:text-gray-600"
-              onClick={prevProject}
-              aria-label="이전"
-            >
-              &#9664;
-            </button>
-            <div className="border rounded w-full h-64 flex items-center justify-center text-xl">
-              {project.image}
+      <div className="w-full max-w-6xl px-6 py-12">
+        <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
+        
+        <div className="flex justify-center">
+          <div className="w-full md:w-1/2">
+            {projectList.map((project) => (
+            <div key={project.id} className="flex flex-col bg-white rounded-lg p-6 shadow-md">
+              <div className="flex items-start justify-between mb-2">
+                <h3 className="text-xl font-bold text-white bg-[#0D8DF6] px-3 py-1 rounded">{project.name}</h3>
+              </div>
+              
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-gray-700 font-semibold">{project.role}</span>
+                <span className="text-gray-600 text-sm">{project.period}</span>
+              </div>
+
+              <hr className="mb-4" />
+
+              <div className="w-full bg-gray-100 rounded-lg mb-6 flex items-center justify-center h-48 overflow-hidden">
+                {project.image ? (
+                  <img src={project.image} alt={project.name} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="text-gray-400 text-center text-sm">이미지 준비 중</div>
+                )}
+              </div>
+
+              <p className="text-black-700 mb-4 leading-relaxed">{project.description}</p>
+
+              <ul className="text-gray-700 text-sm mb-4 space-y-1">
+                {project.details.map((detail, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span className="text-blue-500 mt-1">•</span>
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mb-6">
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.map((tech, index) => (
+                    <span
+                      key={index}
+                      className="bg-[#222831] text-white text-xs px-3 py-1 rounded-full border border-[#222831]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <button
+                onClick={() => handleMoreDetail(project)}
+                className="mt-4 bg-[#58B5F8] text-white px-4 py-2 rounded hover:bg-[#184B85] transition font-medium text-sm"
+              >
+                자세히 보기
+              </button>
             </div>
-            <button
-              className="absolute right-0 top-1/2 -translate-y-1/2 px-2 text-2xl text-gray-400 hover:text-gray-600"
-              onClick={nextProject}
-              aria-label="다음"
-            >
-              &#9654;
-            </button>
+            ))}
           </div>
         </div>
       </div>
-      {/* 자세히 보기 모달 */}
-      {showDetail && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40"
-          onMouseDown={handleBackdropClick}
-        >
-          <div
-            ref={modalRef}
-            className="bg-white rounded-lg shadow-lg max-w-2xl w-full p-8 relative"
-            onMouseDown={e => e.stopPropagation()}
-          >
-            <button
-              className="absolute top-4 right-4 text-2xl text-gray-400 hover:text-gray-600"
-              onClick={() => setShowDetail(false)}
-              aria-label="닫기"
-            >
-              &times;
-            </button>
-            <div className="bg-gray-100 p-4 rounded text-center font-semibold mb-4">
-              {project.name}<br />
-              {project.year} / {project.period} / {project.role}
-            </div>
-            <div className="border rounded p-4 mb-4 text-center">{project.overview}</div>
-            <div className="border rounded p-4 mb-4 text-center">{project.environment}</div>
-            <div className="border rounded p-4 mb-4 text-center">{project.details}</div>
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="border rounded p-4 flex-1 text-center">{project.features}</div>
-              <div className="border rounded p-4 flex-1 text-center">{project.featureImage}</div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

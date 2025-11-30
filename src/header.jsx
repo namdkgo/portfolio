@@ -1,17 +1,25 @@
 import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const MENU = [
   { id: 'about', label: 'About' },
-  { id: 'portfolio', label: 'Portfolio' },
+  { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Contact' },
 ];
 
 function Header() {
   const [active, setActive] = useState('about');
   const [isScrolling, setIsScrolling] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isProjectPage = location.pathname.startsWith('/project/');
 
-  // 현재 섹션 감지
   useEffect(() => {
+    if (isProjectPage) {
+      setActive('projects');
+      return;
+    }
+    
     const handleScroll = () => {
       if (isScrolling) return;
       const sections = MENU.map(m => document.getElementById(m.id));
@@ -26,23 +34,65 @@ function Header() {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isScrolling]);
+  }, [isScrolling, isProjectPage]);
 
-  // 스크롤 스냅 동작 시 메뉴 클릭
   const handleScrollTo = (id) => {
-    setIsScrolling(true);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-      setActive(id);
-      setTimeout(() => setIsScrolling(false), 700); // 스크롤 애니메이션 시간
+    if (isProjectPage) {
+      navigate('/');
+      if (id === 'about') {
+        navigate('/');
+      } else {
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+            setActive(id);
+            setTimeout(() => setIsScrolling(false), 700);
+          }
+        }, 100);
+
+      }
+
+    } else {
+      setIsScrolling(true);
+      if (id === 'about') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setActive(id);
+        setTimeout(() => setIsScrolling(false), 700);
+      } else {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+          setActive(id);
+          setTimeout(() => setIsScrolling(false), 700);
+        }
+      }
     }
   };
+
+  // 네비게이션 후 스크롤 처리 (해시 기반)
+  useEffect(() => {
+    const hash = location.hash.slice(1); // '#' 제거
+    if (hash && !isProjectPage) {
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+          setActive(hash);
+        }
+      }, 100);
+    }
+  }, [location.hash, isProjectPage]);
 
   return (
     <header className="fixed top-0 left-0 w-full shadow z-50">
       <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4 h-[6vh]">
-        <div className="text-xl font-bold text-white select-none">남동관 포트폴리오</div>
+        <button 
+          onClick={() => navigate('/')}
+          className="text-xl font-bold text-white select-none hover:opacity-80 transition"
+        >
+          남동관 포트폴리오
+        </button>
         <nav className="space-x-6 flex">
           {MENU.map(menu => (
             <button

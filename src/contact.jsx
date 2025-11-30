@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import photo from './assets/photo.jpg';
+import photo from './assets/photo2.jpg';
 
 function Contact() {
   const [form, setForm] = useState({
@@ -47,6 +47,21 @@ function Contact() {
             <div className="mt-6 flex justify-center">
               <img src={photo} alt="thanks" className="w-64 h-auto object-cover" />
             </div>
+        
+            <div className="mt-6 flex items-center gap-3 justify-center">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.21 2.21z" fill="#333"/>
+              </svg>
+              <span className="leading-tight">010-6361-6832</span>
+            </div>
+
+            <div className="mt-2 flex items-center gap-3 justify-center">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#333"/>
+              </svg>
+              <span className="leading-tight">namdkgo@gmail.com</span>
+            </div>
+
           </div>
         </div>
         {/* 오른쪽: 이름, 제목, 메시지, 전송 */}

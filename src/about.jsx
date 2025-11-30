@@ -1,5 +1,5 @@
 import React from 'react';
-import photo from './assets/photo.jpg';
+import photo from './assets/photo1.jpg';
 
 function About() {
   return (
@@ -7,67 +7,111 @@ function About() {
       id="about"
       className="w-full flex items-start justify-center snap-start"
       style={{
-        minHeight: '94vh',
-        height: '94vh',
         scrollSnapAlign: 'start',
-        marginTop: '6vh', // margin 대신 패딩으로 내부 여유 확보
+        marginTop: '6vh'
       }}
     >
-      {/* 최상위 컨테이너: 세로 중앙 정렬 제거 */}
+
       <div className="p-6 w-full flex flex-col">
         <div className="flex flex-col md:flex-row gap-8 h-full">
-          {/* 왼쪽: 사진 + 기본 정보 */}
+
           <div className="flex flex-col items-center md:w-[22%] gap-8 bg-[#184B85] text-white rounded-lg p-6">
-            {/* 사진 */}
+
             <div className="w-64 h-64 rounded-full border border-white/20 overflow-hidden mb-2 bg-white/5">
               <img src={photo} alt="프로필" className="w-full h-full object-cover" />
             </div>
             <div className='mb-2 text-3xl font-bold'>남동관</div>
-            {/* 기본 정보 */}
-            <div className="rounded text-white text-left space-y-2">
-              <div className="mb-2 flex items-center gap-3">
-                {/* 프로필 아이콘 */}
-                <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5z" fill="currentColor"/>
-                  <path d="M4 20c0-3.314 2.686-6 6-6h4c3.314 0 6 2.686 6 6v1H4v-1z" fill="currentColor" opacity="0.9"/>
-                </svg>
-                <span className="leading-tight">1998.06.03</span>
+
+            <div className="w-full text-left text-white">
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="text-lg font-bold">PROFILE</h4>
+                <div className="h-0.5 bg-white/60 w-16 rounded" />
               </div>
 
-              <div className="mb-2 flex items-center gap-3">
-                {/* 전화번호 아이콘 */}
-                <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.21 2.21z" fill="currentColor"/>
-                </svg>
-                <span className="leading-tight">010-6361-6832</span>
-              </div>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-center gap-3">
+                  <svg className="w-4 h-4 text-white/90" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5z" fill="currentColor"/>
+                    <path d="M4 20c0-3.314 2.686-6 6-6h4c3.314 0 6 2.686 6 6v1H4v-1z" fill="currentColor" opacity="0.9"/>
+                  </svg>
+                  <span className="text-white/90">1998.06.03</span>
+                </li>
 
-              <div className="mb-2 flex items-center gap-3">
-                {/* 이메일 아이콘 */}
-                <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
-                </svg>
-                <span className="leading-tight">namdkgo@gmail.com</span>
-              </div>
+                <li className="flex items-center gap-3">
+                  <svg className="w-4 h-4 text-white/90" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                  </svg>
+                  <span className="text-white/90">namdkgo@gmail.com</span>
+                </li>
 
-              <div className="mb-2 flex items-center gap-3">
-                {/* 집(주소) 아이콘 */}
-                <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 3l9 8h-3v8h-4v-5H10v5H6v-8H3l9-8z" fill="currentColor"/>
-                </svg>
-                <span className="leading-tight">인천광역시 부평구 열우물로 90</span>
-              </div>
+                <li className="flex items-center gap-3">
+                  <svg className="w-4 h-4 text-white/90" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.21 2.21z" fill="currentColor"/>
+                  </svg>
+                  <span className="text-white/90">010-6361-6832</span>
+                </li>
+
+                <li className="flex items-center gap-3">
+                  <svg className="w-4 h-4 text-white/90" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 3l9 8h-3v8h-4v-5H10v5H6v-8H3l9-8z" fill="currentColor"/>
+                  </svg>
+                  <span className="text-white/90">인천광역시 부평구 열우물로 90</span>
+                </li>
+              </ul>
             </div>
-            {/* 기술 스택 */}
-            <div className="border border-white/10 bg-transparent rounded p-4 w-full text-center md:text-left text-white">
-              기술 스택
+
+            <div className="w-full text-left text-white space-y-6">
+
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <h4 className="text-lg font-bold">EDUCATION</h4>
+                  <div className="h-0.5 bg-white/60 w-16 rounded" />
+                </div>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="mt-2 w-2 h-2 bg-white rounded-full" />
+                    <div>
+                      <div className="font-semibold">인하공업전문대학</div>
+                      <div className="text-sm text-white/80">컴퓨터정보공학과</div>
+                      <div className="text-xs text-white/70 mt-1">2023 - 2026 (졸업 예정)</div>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-2 w-2 h-2 bg-white rounded-full" />
+                    <div>
+                      <div className="font-semibold">인천해원고등학교</div>
+                      <div className="text-xs text-white/70 mt-1">2014 - 2017</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <h4 className="text-lg font-bold">EXPERIENCE</h4>
+                  <div className="h-0.5 bg-white/60 w-16 rounded" />
+                </div>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="mt-2 w-2 h-2 bg-white rounded-full" />
+                    <div>
+                      <div className="font-semibold">펄어비스</div>
+                      <div className="text-sm text-white/80">검은사막 모바일 기획팀</div>
+                      <div className="text-xs text-white/70 mt-1">2017 - 2018</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-          {/* 오른쪽: 기술 스택 + 자기소개 */}
+
           <div className="flex flex-col gap-8 flex-1">
-            {/* 자기소개 */}
-            <div className="border rounded bg-white p-6 text-lg min-h-[120px] h-[88vh]">
-              <div className="space-y-4 text-left p-8">
+            <div className="border rounded bg-white p-6 text-lg min-h-[120px] h-full">
+              <div className="px-8 pt-6">
+                <h1 className="text-4xl md:text-5xl font-extrabold text-[#0b1320] mb-2">남동관</h1>
+                <p className="text-gray-500 text-3xl tracking-widest">Full-Stack Programmer</p>
+              </div>
+              <div className="space-y-4 text-left p-8 mt-4">
                 <p>
                   <strong>초등학교 3학년, 우연히 게임 소스 파일을 얻게 되었습니다.</strong><br />
                   프로그래밍 언어도 IDE도 모르던 어린 시절, 단지 ‘내가 게임을 바꿔보고 싶다’는 호기심 하나로 메모장을 열고 코드를 하나씩 바꿔보며 시행착오를 반복했습니다. 컴파일러 없이 실행 화면 하나로만 결과를 확인할 수 있었기 때문에, 코드에 오류가 생기거나 실행이 되지 않으면 모든 파일을 삭제하고 다시 압축을 푼 뒤, 기억만으로 기존의 수정 내용을 재현해야 했습니다. 지금처럼 AI는 물론, 구글 검색조차 활성화되지 않았던 시절이기에 무언가 하나를 바꾸는 데에도 여러 겹의 장벽을 마주해야 했고, 포기하고 싶을 때도 많았습니다. 하지만 제가 만든 게임을 즐겨주는 사람들이 있었기에 끝까지 책임감을 가지고 완성할 수 있었습니다. 이 과정은 제가 처음으로 개발의 즐거움을 느꼈던 소중한 경험이었고, 개발자가 되겠다는 꿈을 단 한 번도 흔들리지 않게 해주었습니다.
