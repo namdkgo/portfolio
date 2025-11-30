@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import resumePDF from './assets/남동관_이력서+자소서.pdf';
 
 const MENU = [
   { id: 'about', label: 'About' },
@@ -84,6 +85,15 @@ function Header() {
     }
   }, [location.hash, isProjectPage]);
 
+  const handleDownloadPDF = () => {
+    const link = document.createElement('a');
+    link.href = resumePDF;
+    link.download = '남동관_이력서+자소서.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <header className="fixed top-0 left-0 w-full shadow z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 h-[6vh]">
@@ -93,7 +103,7 @@ function Header() {
         >
           남동관 포트폴리오
         </button>
-        <nav className="space-x-6 flex">
+        <nav className="space-x-6 flex items-center">
           {MENU.map(menu => (
             <button
               key={menu.id}
@@ -106,6 +116,13 @@ function Header() {
               {menu.label}
             </button>
           ))}
+          <button
+            onClick={handleDownloadPDF}
+            className="ml-4 bg-white text-[#184B85] px-4 py-2 rounded font-semibold hover:bg-gray-200 transition"
+            title="포트폴리오 PDF 다운로드"
+          >
+            PDF
+          </button>
         </nav>
       </div>
     </header>
