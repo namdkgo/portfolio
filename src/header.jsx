@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const MENU = [
   { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -19,7 +20,7 @@ function Header() {
       setActive('projects');
       return;
     }
-    
+
     const handleScroll = () => {
       if (isScrolling) return;
       const sections = MENU.map(m => document.getElementById(m.id));
@@ -70,9 +71,8 @@ function Header() {
     }
   };
 
-  // 네비게이션 후 스크롤 처리 (해시 기반)
   useEffect(() => {
-    const hash = location.hash.slice(1); // '#' 제거
+    const hash = location.hash.slice(1);
     if (hash && !isProjectPage) {
       setTimeout(() => {
         const el = document.getElementById(hash);
@@ -86,8 +86,8 @@ function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full shadow z-50">
-      <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4 h-[6vh]">
-        <button 
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 h-[6vh]">
+        <button
           onClick={() => navigate('/')}
           className="text-xl font-bold text-white select-none hover:opacity-80 transition"
         >
@@ -97,11 +97,10 @@ function Header() {
           {MENU.map(menu => (
             <button
               key={menu.id}
-              className={`font-medium transition-colors border-b-2 ${
-                active === menu.id
+              className={`font-medium transition-colors border-b-2 ${active === menu.id
                   ? 'text-[#FFFFFF] border-[#FFFFFF]'
                   : 'text-white border-transparent hover:text-[#FFFFFF] hover:border-[#FFFFFF] '
-              }`}
+                }`}
               onClick={() => handleScrollTo(menu.id)}
             >
               {menu.label}

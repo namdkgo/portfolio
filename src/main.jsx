@@ -5,6 +5,7 @@ import './index.css'
 import Header from './header.jsx'
 import Footer from './footer.jsx'
 import About from './about.jsx'
+import Skills from './skills.jsx'
 import Projects from './projects.jsx'
 import Contact from './contact.jsx'
 import Project1 from './projects/project1.jsx'
@@ -20,6 +21,7 @@ createRoot(document.getElementById('root')).render(
             <>
               <Header />
               <About />
+              <Skills />
               <Projects />
               <Contact />
               <Footer />

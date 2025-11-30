@@ -2,7 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* Tailwind 사용 시 아래를 추가, 일반 CSS라면 직접 스타일 지정 */
 html,
 body,
 #root {

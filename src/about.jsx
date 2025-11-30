@@ -8,7 +8,8 @@ function About() {
       className="w-full flex items-start justify-center snap-start"
       style={{
         scrollSnapAlign: 'start',
-        marginTop: '6vh'
+        marginTop: '6vh',
+        backgroundColor: '#F2F6FA'
       }}
     >
 
@@ -31,29 +32,29 @@ function About() {
               <ul className="space-y-3 text-sm">
                 <li className="flex items-center gap-3">
                   <svg className="w-4 h-4 text-white/90" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5z" fill="currentColor"/>
-                    <path d="M4 20c0-3.314 2.686-6 6-6h4c3.314 0 6 2.686 6 6v1H4v-1z" fill="currentColor" opacity="0.9"/>
+                    <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5z" fill="currentColor" />
+                    <path d="M4 20c0-3.314 2.686-6 6-6h4c3.314 0 6 2.686 6 6v1H4v-1z" fill="currentColor" opacity="0.9" />
                   </svg>
                   <span className="text-white/90">1998.06.03</span>
                 </li>
 
                 <li className="flex items-center gap-3">
                   <svg className="w-4 h-4 text-white/90" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor" />
                   </svg>
                   <span className="text-white/90">namdkgo@gmail.com</span>
                 </li>
 
                 <li className="flex items-center gap-3">
                   <svg className="w-4 h-4 text-white/90" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.21 2.21z" fill="currentColor"/>
+                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.21 2.21z" fill="currentColor" />
                   </svg>
                   <span className="text-white/90">010-6361-6832</span>
                 </li>
 
                 <li className="flex items-center gap-3">
                   <svg className="w-4 h-4 text-white/90" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 3l9 8h-3v8h-4v-5H10v5H6v-8H3l9-8z" fill="currentColor"/>
+                    <path d="M12 3l9 8h-3v8h-4v-5H10v5H6v-8H3l9-8z" fill="currentColor" />
                   </svg>
                   <span className="text-white/90">인천광역시 부평구 열우물로 90</span>
                 </li>
